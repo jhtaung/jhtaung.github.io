@@ -105,6 +105,21 @@ jQuery(document).ready(function($) {
     this_form.find('.error-message').slideUp();
     this_form.find('.loading').slideDown();
     
+    var email = $('#email').val();
+    var subject = $('#subject').val();
+    var name = $('#name').val();
+    var message = $('#message').val();
+
+    var body = 'mailto:jhtaung29@gmail.com?subject=' + subject + 
+      '&body=Name%3A%20' + name + '%0D%0AEmail%3A%20' + email + 
+      '%0D%0A%0D%0A' + message + '%0D%0A';
+    window.location.href = body;
+
+    this_form.find('.loading').slideUp();
+    this_form.find('.sent-message').slideDown();
+    this_form.find("input:not(input[type=submit]), textarea").val('');
+
+    /*
     $.ajax({
       type: "POST",
       url: action,
@@ -120,6 +135,8 @@ jQuery(document).ready(function($) {
         }
       }
     });
+    */
+
     return false;
   });
 
